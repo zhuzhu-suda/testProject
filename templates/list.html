@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>帖子列表</title>
+</head>
+<body>
+    <h1>帖子列表</h1>
+    
+    <p>测试XSS防护：输入&lt;script&gt;代码会安全显示</p>
+    
+    <ul>
+    {% for post in posts %}
+        <li>{{ post.content }}</li>
+    {% empty %}
+        <li>还没有帖子</li>
+    {% endfor %}
+    </ul>
+    
+    <a href="{% url 'post_create' %}">创建新帖子</a>
+</body>
+</html>
